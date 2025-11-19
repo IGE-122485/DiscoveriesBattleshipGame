@@ -17,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * - toString(): 1
  * - charToCompass(): 5
  */
+@DisplayName("Testes da entidade Compass")
 class CompassTest {
 
     // Instance under test (for enums we still use one constant as a fixture)
@@ -36,6 +37,7 @@ class CompassTest {
 
     // constructor: CC = 1
     @Test
+    @DisplayName("Verifica existência dos constantes do enum Compass")
     public void constructor() {
         // Verify the enum constants exist and can be retrieved by name
         assertAll("Error: Compass enum constants should be present",
@@ -49,6 +51,7 @@ class CompassTest {
 
     // getDirection(): CC = 1
     @Test
+    @DisplayName("getDirection() should return the correct char for NORTH")
     public void getDirection() {
         // Using sut == NORTH set in @BeforeEach, expect 'n'
         char expected = 'n';
@@ -58,6 +61,7 @@ class CompassTest {
 
     // toString(): CC = 1
     @Test
+    @DisplayName("toString() should match the character representation")
     public void toStringTest() {
         // Using sut == NORTH set in @BeforeEach, toString should be the character representation
         String expected = "n";
@@ -68,6 +72,7 @@ class CompassTest {
     // charToCompass(): CC = 5 -> generate 5 test methods, each a distinct control-flow path
 
     @Test
+    @DisplayName("charToCompass('n') -> NORTH")
     public void charToCompass1() {
         // path for 'n' -> NORTH
         Compass expected = Compass.NORTH;
@@ -76,6 +81,7 @@ class CompassTest {
     }
 
     @Test
+    @DisplayName("charToCompass('s') -> SOUTH")
     public void charToCompass2() {
         // path for 's' -> SOUTH
         Compass expected = Compass.SOUTH;
@@ -84,6 +90,7 @@ class CompassTest {
     }
 
     @Test
+    @DisplayName("charToCompass('e') -> EAST")
     public void charToCompass3() {
         // path for 'e' -> EAST
         Compass expected = Compass.EAST;
@@ -92,6 +99,7 @@ class CompassTest {
     }
 
     @Test
+    @DisplayName("charToCompass('o') -> WEST (Oeste)")
     public void charToCompass4() {
         // path for 'o' -> WEST (note: the source uses 'o' for Oeste/West)
         Compass expected = Compass.WEST;
@@ -100,6 +108,7 @@ class CompassTest {
     }
 
     @Test
+    @DisplayName("charToCompass(default) -> UNKNOWN for unknown chars")
     public void charToCompass5() {
         // default path -> UNKNOWN (use an input that doesn't match any case)
         Compass expected = Compass.UNKNOWN;
