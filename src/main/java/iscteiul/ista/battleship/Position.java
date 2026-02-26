@@ -1,10 +1,12 @@
-/**
- *
- */
 package iscteiul.ista.battleship;
 
 import java.util.Objects;
 
+/**
+ * Representa uma posição (coordenada) específica no tabuleiro do jogo da Batalha Naval.
+ * Guarda a informação sobre a sua localização (linha e coluna), se está ocupada por um navio
+ * e se já foi atingida por um tiro.
+ */
 public class Position implements IPosition {
     private int row;
     private int column;
@@ -12,7 +14,11 @@ public class Position implements IPosition {
     private boolean isHit;
 
     /**
+     * Construtor que inicializa uma nova posição no tabuleiro.
+     * Por omissão, a posição começa desocupada e sem nenhum tiro registado.
      *
+     * @param row    A linha da coordenada (ex: 0 a 9).
+     * @param column A coluna da coordenada (ex: 0 a 9).
      */
     public Position(int row, int column) {
         this.row = row;
@@ -21,36 +27,41 @@ public class Position implements IPosition {
         this.isHit = false;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Obtém a linha atual desta posição.
      *
-     * @see battleship.IPosition#getRow()
+     * @return O valor inteiro correspondente à linha.
      */
     @Override
     public int getRow() {
         return row;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Obtém a coluna atual desta posição.
      *
-     * @see battleship.IPosition#getColumn()
+     * @return O valor inteiro correspondente à coluna.
      */
     @Override
     public int getColumn() {
         return column;
     }
 
-
+    /**
+     * Gera um código hash para a posição com base nos seus atributos.
+     * * @return O código hash gerado.
+     */
     @Override
     public int hashCode() {
         return Objects.hash(column, isHit, isOccupied, row);
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Compara esta posição com outro objeto para verificar se são iguais.
+     * Duas posições são consideradas iguais se tiverem exatamente a mesma linha e coluna.
      *
-     * @see battleship.IPosition#equals(java.lang.Object)
+     * @param otherPosition O outro objeto a comparar.
+     * @return true se as posições forem idênticas, false caso contrário.
      */
     @Override
     public boolean equals(Object otherPosition) {
@@ -64,59 +75,61 @@ public class Position implements IPosition {
         }
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Verifica se esta posição é adjacente a uma outra posição fornecida.
+     * A adjacência inclui posições horizontais, verticais e diagonais diretas.
      *
-     * @see battleship.IPosition#isAdjacentTo(battleship.IPosition)
+     * @param other A outra posição a verificar.
+     * @return true se for adjacente, false caso contrário.
      */
     @Override
     public boolean isAdjacentTo(IPosition other) {
         return (Math.abs(this.getRow() - other.getRow()) <= 1 && Math.abs(this.getColumn() - other.getColumn()) <= 1);
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see battleship.IPosition#occupy()
+    /**
+     * Marca esta posição como estando ocupada por um navio.
      */
     @Override
     public void occupy() {
         isOccupied = true;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see battleship.IPosition#shoot()
+    /**
+     * Regista um tiro nesta posição, marcando-a como atingida.
      */
     @Override
     public void shoot() {
         isHit = true;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Verifica se a posição está atualmente ocupada por um navio.
      *
-     * @see battleship.IPosition#isOccupied()
+     * @return true se estiver ocupada, false caso contrário.
      */
     @Override
     public boolean isOccupied() {
         return isOccupied;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Verifica se a posição já foi alvo de um tiro durante o jogo.
      *
-     * @see battleship.IPosition#isHit()
+     * @return true se já foi atingida, false caso contrário.
      */
     @Override
     public boolean isHit() {
         return isHit;
     }
 
+    /**
+     * Retorna uma representação textual da posição para facilitar a visualização e testes.
+     *
+     * @return Uma string contendo a linha e a coluna (ex: "Linha = 0 Coluna = 0").
+     */
     @Override
     public String toString() {
         return ("Linha = " + row + " Coluna = " + column);
     }
-
 }
