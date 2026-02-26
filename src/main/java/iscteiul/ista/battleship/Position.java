@@ -6,8 +6,6 @@ import java.util.Objects;
  * Representa uma posição (coordenada) específica no tabuleiro do jogo da Batalha Naval.
  * Guarda a informação sobre a sua localização (linha e coluna), se está ocupada por um navio
  * e se já foi atingida por um tiro.
- * * @author [O Teu Nome/Nome do Grupo]
- * @version 1.0
  */
 public class Position implements IPosition {
     private int row;
