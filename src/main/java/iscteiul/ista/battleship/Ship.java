@@ -8,7 +8,6 @@ import java.util.List;
  * Classe abstrata que representa um navio genérico no jogo da Batalha Naval.
  * Fornece a base para os diferentes tipos de navios (Galeão, Fragata, Nau, Caravela, Barca),
  * gerindo o seu estado, posições ocupadas e as verificações de proximidade no tabuleiro.
- * @version 1.0
  */
 public abstract class Ship implements IShip {
 
