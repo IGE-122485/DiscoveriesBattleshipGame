@@ -10,8 +10,7 @@ package iscteiul.ista.battleship;
  * características específicas de uma barca. Uma barca é o navio mais pequeno, 
  * ocupando apenas uma única posição no tabuleiro.
  * </p>
- * * @author O Seu Nome / A Sua Equipa
- * @version 1.0
+
  */
 public class Barge extends Ship {
     
