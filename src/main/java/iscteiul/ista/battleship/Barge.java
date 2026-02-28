@@ -9,6 +9,7 @@ package iscteiul.ista.battleship;
  * Esta classe estende a funcionalidade base de {@link Ship}, definindo as 
  * características específicas de uma barca. Uma barca é o navio mais pequeno, 
  * ocupando apenas uma única posição no tabuleiro.
+ * COMENTÁRIO para gerar conflito
  * </p>
 
  */
